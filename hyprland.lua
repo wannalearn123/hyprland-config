@@ -29,6 +29,14 @@ hl.monitor({
 })
 
 
+--------------------------
+---- MOUSE & TOUCHPAD ----
+--------------------------
+
+local tpName = "syna3602:00-093a:0255-touchpad"
+local tpOn   = true
+
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -269,7 +277,7 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + SHIFT + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
@@ -318,7 +326,21 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+-- Resize window from keyboard (HJKL submap)
+hl.define_submap("resize", function()
+	hl.bind("H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+	hl.bind("L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+	hl.bind("K", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+	hl.bind("J", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+	hl.bind("Escape", hl.dsp.submap("reset"))
+end)
+hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
+
 -- Laptop multimedia keys for volume and LCD brightness
+hl.bind("F1", function()
+	tpOn = not tpOn
+	hl.device({ name = tpName, enabled = tpOn })
+end)
 hl.bind("F6", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("F5", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
 hl.bind("F3", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
