@@ -34,9 +34,9 @@ hl.monitor({
 --------------------------
 
 -- custom your own touchpad by running hyprctl devices
-local tpName    = "elan0501:00-04f3:305b-touchpad"
-local tpOn      = true
-local screenOn  = true
+local tpName   = "syna3602:00-093a:0255-touchpad"
+local tpOn     = true
+local screenOn = true
 
 
 ---------------------
