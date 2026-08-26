@@ -50,7 +50,7 @@ local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
 local office      = "libreoffice"
-local browser     = "firefox"
+local browser     = "brave"
 local note        = "~/Downloads/Obsidian-1.12.7.AppImage"
 
 -------------------
@@ -326,8 +326,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:scratchpad" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
