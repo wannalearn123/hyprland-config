@@ -293,6 +293,7 @@ hl.bind("Print", hl.dsp.exec_cmd("grim"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("killall waybar || waybar"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock"))
 
 -- Utility Apps
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
