@@ -34,11 +34,14 @@ hl.monitor({
 
 -- custom your own touchpad by running hyprctl devices
 -- axioo army
-local tpName   = "syna3602:00-093a:0255-touchpad"
+-- local tpName   = "syna3602:00-093a:0255-touchpad"
 -- acer
--- local tpName   = "elan0501:00-04f3:305b-touchpad"
-local tpOn     = true
-local screenOn = true
+local tpName    = "elan0501:00-04f3:305b-touchpad"
+
+local mouseName = "-usb-optical-mouse"
+local tpOn      = true
+local mouseOn   = true
+local screenOn  = true
 
 
 ---------------------
@@ -353,6 +356,10 @@ end)
 hl.bind("F1", function()
 	tpOn = not tpOn
 	hl.device({ name = tpName, enabled = tpOn })
+end)
+hl.bind("SHIFT + F1", function()
+	mouseOn = not mouseOn
+	hl.device({ name = mouseName, enabled = mouseOn })
 end)
 hl.bind("F2", function()
 	screenOn = not screenOn
