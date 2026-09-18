@@ -36,7 +36,7 @@ hl.monitor({
 -- axioo army
 local tpName   = "syna3602:00-093a:0255-touchpad"
 -- acer
--- local tpName   = ""
+-- local tpName   = "elan0501:00-04f3:305b-touchpad"
 local tpOn     = true
 local screenOn = true
 
