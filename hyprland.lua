@@ -25,8 +25,16 @@ hl.monitor({
 	mode     = "1920x1080@60",
 	position = "0x0",
 	scale    = "1",
+
 })
 
+hl.monitor({
+	output   = "HDMI-A-1",
+	mode     = "1920x1080@60",
+	position = "1920x0",
+	scale    = "1",
+
+})
 
 --------------------------
 ---- MOUSE & TOUCHPAD ----
@@ -34,11 +42,12 @@ hl.monitor({
 
 -- custom your own touchpad by running hyprctl devices
 -- axioo army
--- local tpName   = "syna3602:00-093a:0255-touchpad"
+local tpName   = "syna3602:00-093a:0255-touchpad"
 -- acer
-local tpName    = "elan0501:00-04f3:305b-touchpad"
+-- local tpName    = "elan0501:00-04f3:305b-touchpad"
 
 local mouseName = "-usb-optical-mouse"
+
 local tpOn      = true
 local mouseOn   = true
 local screenOn  = true
@@ -53,8 +62,12 @@ local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
 local office      = "libreoffice"
-local browser     = "brave"
-local note        = "~/Downloads/Obsidian-1.12.7.AppImage"
+local browser     = "brave --no-first-run --no-default-browser-check "
+	.. "--disable-background-networking --disable-backgrounding-occluded-windows "
+	.. "--disable-sync --disable-component-update "
+	.. "--disable-features=Translate,BackForwardCache "
+	.. "--disk-cache-size=104857600 --renderer-process-limit=8"
+local note        = "~/.local/share/AppImage/Obsidian-1.12.7.AppImage"
 
 -------------------
 ---- AUTOSTART ----
@@ -111,8 +124,8 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in          = 5,
-		gaps_out         = 7,
+		gaps_in          = 6,
+		gaps_out         = 10,
 
 		border_size      = 2,
 
@@ -285,7 +298,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + SHIFT + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
@@ -372,7 +385,10 @@ hl.bind("F2", function()
 	end
 end)
 hl.bind("F6", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+hl.bind("SHIFT + F6", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+"),
+	{ locked = true, repeating = true })
 hl.bind("F5", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+hl.bind("SHIFT + F5", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"), { locked = true, repeating = true })
 hl.bind("F3", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
 hl.bind("F4", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
 hl.bind("F9", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
