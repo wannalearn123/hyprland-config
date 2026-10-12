@@ -67,6 +67,8 @@ local note        = "~/Downloads/Obsidian-1.12.7.AppImage"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	-- hl.exec_cmd("swaybg")
 end)
 
@@ -288,7 +290,7 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + Space", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + Space", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit")) -- dwindle only
