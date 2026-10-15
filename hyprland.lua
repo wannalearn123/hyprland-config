@@ -82,7 +82,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-	-- hl.exec_cmd("swaybg")
+	hl.exec_cmd('pkill swaybg; swaybg -i "$HOME/Downloads/Wallpaper 2.jpg"')
 end)
 
 
@@ -131,7 +131,8 @@ hl.config({
 
 		col              = {
 			-- active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			active_border   = "rgba(33ccffee)",
+			-- active_border   = "rgba(33ccffee)",
+			active_border   = "rgba(ff3333ee)",
 			inactive_border = "rgba(595959aa)",
 		},
 
