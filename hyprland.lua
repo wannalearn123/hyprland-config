@@ -42,9 +42,9 @@ hl.monitor({
 
 -- custom your own touchpad by running hyprctl devices
 -- axioo army
-local tpName   = "syna3602:00-093a:0255-touchpad"
+-- local tpName   = "syna3602:00-093a:0255-touchpad"
 -- acer
--- local tpName    = "elan0501:00-04f3:305b-touchpad"
+local tpName    = "elan0501:00-04f3:305b-touchpad"
 
 local mouseName = "-usb-optical-mouse"
 
@@ -380,9 +380,9 @@ end)
 hl.bind("F2", function()
 	screenOn = not screenOn
 	if screenOn then
-		hl.exec_cmd('brightnessctl -d intel_backlight set "$(cat /tmp/.bri_saved 2>/dev/null || echo 458)"')
+		hl.exec_cmd("brightnessctl -d intel_backlight set 50%")
 	else
-		hl.exec_cmd('brightnessctl -d intel_backlight get > /tmp/.bri_saved && brightnessctl -d intel_backlight set 0')
+		hl.exec_cmd("brightnessctl -d intel_backlight set 0%")
 	end
 end)
 hl.bind("F6", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
