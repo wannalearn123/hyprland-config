@@ -42,9 +42,9 @@ hl.monitor({
 
 -- custom your own touchpad by running hyprctl devices
 -- axioo army
--- local tpName   = "syna3602:00-093a:0255-touchpad"
+local tpName   = "syna3602:00-093a:0255-touchpad"
 -- acer
-local tpName    = "elan0501:00-04f3:305b-touchpad"
+-- local tpName    = "elan0501:00-04f3:305b-touchpad"
 
 local mouseName = "-usb-optical-mouse"
 
@@ -61,13 +61,11 @@ local screenOn  = true
 local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
-local office      = "libreoffice"
-local browser     = "brave --no-first-run --no-default-browser-check "
-	.. "--disable-background-networking --disable-backgrounding-occluded-windows "
-	.. "--disable-sync --disable-component-update "
-	.. "--disable-features=Translate,BackForwardCache "
-	.. "--disk-cache-size=104857600 --renderer-process-limit=8"
-local note        = "~/.local/share/AppImage/Obsidian-1.12.7.AppImage"
+local word        = "/mnt/DATA/PROGRAM/wordcraft-0.11.0-linux-x86_64.AppImage"
+local excel       = "/mnt/DATA/PROGRAM/gridcraft-0.12.1-linux-x86_64.AppImage"
+local browser     = "brave" 
+local photoshop   = "/mnt/DATA/PROGRAM/photocraft-0.15.1-linux-x86_64.AppImage"
+local illustrator = "/mnt/DATA/PROGRAM/vectorcraft-0.16.0-linux-x86_64.AppImage"
 
 -------------------
 ---- AUTOSTART ----
@@ -316,10 +314,10 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock"))
 
 -- Utility Apps
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("gimp"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(office))
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("inkscape"))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(note))
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(photoshop))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(word))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(excel))
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(illustrator))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("zathura"))
 
 -- Move focus with mainMod + arrow keys
@@ -380,7 +378,7 @@ end)
 hl.bind("F2", function()
 	screenOn = not screenOn
 	if screenOn then
-		hl.exec_cmd("brightnessctl -d intel_backlight set 50%")
+		hl.exec_cmd("brightnessctl -d intel_backlight set 10%")
 	else
 		hl.exec_cmd("brightnessctl -d intel_backlight set 0%")
 	end
