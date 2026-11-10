@@ -61,10 +61,10 @@ local screenOn  = true
 local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
-local word        = "/mnt/DATA/PROGRAM/wordcraft-0.11.0-linux-x86_64.AppImage"
-local excel       = "/mnt/DATA/PROGRAM/gridcraft-0.12.1-linux-x86_64.AppImage"
+local word        = "/mnt/DATA/DOWNLOAD/wordcraft/target/release/wordcraft"
+local excel       = "/mnt/DATA/DOWNLOAD/gridcraft/target/release/gridcraft"
 local browser     = "brave" 
-local photoshop   = "/mnt/DATA/PROGRAM/photocraft-0.15.1-linux-x86_64.AppImage"
+local photoshop   = "/mnt/DATA/DOWNLOAD/photocraft/target/release/photocraft"
 local illustrator = "/mnt/DATA/PROGRAM/vectorcraft-0.16.0-linux-x86_64.AppImage"
 
 -------------------
