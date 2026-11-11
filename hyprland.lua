@@ -318,6 +318,10 @@ hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(photoshop))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(word))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(excel))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(illustrator))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(browser .. " youtube.com" ))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(browser .. " chat.deepseek.com" ))
+hl.bind(mainMod .. " + A + C", hl.dsp.exec_cmd(browser .. " claude.ai" ))
+hl.bind(mainMod .. " + A + O", hl.dsp.exec_cmd(browser .. " chatgpt.com" ))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("zathura"))
 
 -- Move focus with mainMod + arrow keys
