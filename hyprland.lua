@@ -62,10 +62,10 @@ local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "wofi --show drun"
 local word        = "/mnt/DATA/DOWNLOAD/wordcraft/target/release/wordcraft"
-local excel       = "/mnt/DATA/DOWNLOAD/gridcraft/target/release/gridcraft"
+-- local excel       = "/mnt/DATA/DOWNLOAD/gridcraft/target/release/gridcraft"
 local browser     = "brave" 
 local photoshop   = "/mnt/DATA/DOWNLOAD/photocraft/target/release/photocraft"
-local illustrator = "/mnt/DATA/PROGRAM/vectorcraft-0.16.0-linux-x86_64.AppImage"
+local illustrator = "/mnt/DATA/DOWNLOAD/vectorcraft/target/release/vectorcraft"
 
 -------------------
 ---- AUTOSTART ----
@@ -316,13 +316,21 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(photoshop))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(word))
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(excel))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(illustrator))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("zathura"))
+
+-- flatpak Apps
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("flatpak run org.telegram.desktop"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("flatpak run com.usebottles.bottles"))
+
+-- Browser Shortcut
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(browser .. " youtube.com" ))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(browser .. " x.com" ))
+
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(browser .. " chat.deepseek.com" ))
 hl.bind(mainMod .. " + A + C", hl.dsp.exec_cmd(browser .. " claude.ai" ))
+hl.bind(mainMod .. " + A + G", hl.dsp.exec_cmd(browser .. " grok.com" ))
 hl.bind(mainMod .. " + A + O", hl.dsp.exec_cmd(browser .. " chatgpt.com" ))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("zathura"))
 
 -- Move focus with mainMod + arrow keys
 -- hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
